@@ -1,0 +1,61 @@
+﻿@model project_web_form.context.tbl_student
+@{
+    ViewBag.Title = "Student";
+}
+
+<style>
+    .Error{
+        color:red;
+
+    }
+</style>
+
+
+@using (Html.BeginForm("Addstudent","Student",FormMethod.Post )) 
+{
+<div class="container">
+       
+
+    <div class="form-group">
+        @Html.HiddenFor(x => x.ID)
+        <label>Name</label><br />
+        @Html.ValidationMessageFor(x => x.Name,"", new { @class = "Error" })
+
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-container" })
+    </div>
+
+
+    <div class="form-group">
+        <label>Father Name</label><br />
+        @Html.ValidationMessageFor(x => x.Fname,"", new { @class = "Error" })
+
+        @Html.TextBoxFor(x => x.Fname, new { @class = "form-container" })
+    </div>
+
+    <div class="form-group">
+        <label>Email</label><br />
+        @Html.ValidationMessageFor(x => x.Email,"", new { @class = "Error" })
+
+        @Html.TextBoxFor(x => x.Email, new { @class = "form-container" })
+    </div>
+
+    <div class="form-group">
+        <label>Mobile</label><br />
+        @Html.ValidationMessageFor(x => x.Mobile,"", new { @class = "Error" })
+
+        @Html.TextBoxFor(x => x.Mobile, new { @class = "form-container" })
+    </div>
+
+    <div class="form-group">
+        <label>Descritipion</label><br />
+        @Html.ValidationMessageFor(x => x.Descritipion,"", new { @class = "Error" })
+
+        @Html.TextAreaFor(x => x.Descritipion, new { @class = "form-container", @rows = "10" })
+    </div>
+
+    <div class="form-group"><br />
+        <button type="submit" class="btn btn-primary">SUBMIT</button>
+        <button type="reset" class="btn btn-danger">cancel</button>
+    </div>
+</div>     
+}
